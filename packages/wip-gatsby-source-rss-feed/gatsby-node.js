@@ -27,7 +27,9 @@ const durationToMinutes = durationInSeconds => {
 
 // hackity hack. this extracts the first paragraph from the description
 const extractFirstParagraph = html => {
-  return html.match(/<p>(.*?)<\/p>/)[0];
+  const match = html.match(/<p>(.*?)<\/p>/);
+  if (match) return match[0];
+  return '';
 };
 
 async function sourceNodes({ actions }, { rssSource = "" }) {
@@ -48,7 +50,7 @@ async function sourceNodes({ actions }, { rssSource = "" }) {
   // Prepare RSS item nodes
   const preparedRssItemNodes = items.map(rssItem => {
     let slug = generateRSSItemSlug(rssItem.title);
-    let excerpt = extractFirstParagraph(rssItem.content);
+    let excerpt = extractFirstParagraph(rssItem.description || rssItem.content);
     let duration = durationToMinutes(rssItem.itunes.duration);
     const node = Object.assign({}, rssItem, {
       id: rssItem.link,

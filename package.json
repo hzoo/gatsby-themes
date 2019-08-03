@@ -5,6 +5,7 @@
   "workspaces": [
     "packages/*",
     "podcast-site",
+    "hopeinsource.com",
     "darklight-blog-default",
     "darklight-blog-color"
   ]

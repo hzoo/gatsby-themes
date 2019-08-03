@@ -1,0 +1,19 @@
+{
+  "name": "hopeinsource",
+  "version": "0.0.1",
+  "description": "A podcast site",
+  "main": "gatsby-config.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "nuke": "gatsby clean && yarn develop",
+    "develop": "gatsby develop",
+    "build": "gatsby build"
+  },
+  "dependencies": {
+    "gatsby": "^2.13.25",
+    "gatsby-theme-podcast": "*",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
+}
